@@ -1,0 +1,32 @@
+{
+  "name": "couch-asdesigndoc",
+  "version": "0.4.0",
+  "description": "Transform functions inside a Design Doc object to strings suitable for CouchDB",
+  "keywords": [ "couchdb", "pouchdb", "designdoc", "babel", "ES5", "ES6" ],
+  "author": "Shane Holloway <shane.holloway@ieee.org>",
+  "license": "ISC",
+  "homepage": "https://github.com/shanewholloway/node-couch-designdoc",
+  "bugs": "https://github.com/shanewholloway/node-couch-designdoc/issues",
+  "repository": "shanewholloway/node-couch-designdoc",
+
+  "main": "asDesignDoc.js",
+  "browser": "asDesignDoc.min.js",
+
+  "devDependencies": {
+    "tap-lite-tester": "^0.2.0",
+    "babel-core": "^6.17.0",
+    "babel-preset-es2015": "^6.16.0"
+  },
+  "optionalDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-preset-es2015": "^6.16.0"
+  },
+  "babel": {"presets": ["es2015"]},
+  "scripts": {
+    "build": "babel --compact true --minified -o asDesignDoc.min.js asDesignDoc.js",
+    "prepublish": "npm -s run build && npm -s run test",
+    "preversion": "npm -s run build && npm -s run test",
+    "watch": "nodemon test/test-couch-designdoc.js",
+    "test": "node test/test-couch-designdoc.js"
+  }
+}
