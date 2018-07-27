@@ -14,7 +14,7 @@ $ npm install couch-asdesigndoc
 ```javascript
 const asDesignDoc = require('couch-asdesigndoc')
 const PouchDB = require('pouchdb-node')
-let db = new PouchDB('example')
+const db = new PouchDB('example')
 
 db.put(asDesignDoc({
   _id: '_design/test',
@@ -24,5 +24,20 @@ db.put(asDesignDoc({
     }
   }
 })
+```
+
+### Example (JSY)
+
+```javascript
+const asDesignDoc = require('couch-asdesigndoc')
+const PouchDB = require('pouchdb-node')
+const db = new PouchDB('example')
+
+db.put @ asDesignDoc @:
+  _id: '_design/test'
+  views: @{}
+    simple: @{}
+      map(doc) ::
+        emit(doc.date, doc.title)
 ```
 
